@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Coyoou", "Coyoou\Coyoou.vcxproj", "{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Debug|x64.ActiveCfg = Debug|x64
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Debug|x64.Build.0 = Debug|x64
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Debug|x86.Build.0 = Debug|Win32
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Release|x64.ActiveCfg = Release|x64
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Release|x64.Build.0 = Release|x64
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Release|x86.ActiveCfg = Release|Win32
+		{FCF756E0-B2F4-466D-B471-CE4FE61B13AD}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9A7139A-9BFD-4651-A898-9CD4F03A9EE9}
+	EndGlobalSection
+EndGlobal
