@@ -6,24 +6,89 @@
 #include <gtk/gtk.h>
 #include "sqlite3.h"
 #include "coyoouDB.h"
+#include "ElementsList.h"
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-    coyoouDB* db = new coyoouDB();
+    coyoouDB* db = new coyoouDB("Test");
+    ElementsList* elt_list = new ElementsList(db);
 
-    db->createTable("Test");
-    db->createElement("valeur1", "topic", "50.00","0");
-    db->createElement("valeur2", "jauj", "30.00", "0");
-    db->createElement("valeur3", "7blue", "15.00", "0");
-    db->createElement("valeu4", "CPT", "11.34", "0");
-    db->createElement("valeur5", "GKC3", "1.00", "0");
-    db->editElement(1, "jotun", "jotun", "jotun", "jotun");
-    db->editElement(2, "jotun", "jotun", "jotun", "jotun");
-    db->editElement(3, "jotun", "jotun", "jotun", "jotun");
-    db->searchElement("","","","");
-    db->searchElement("", "", "", "");
+    //db->createTable("Test");
+    //db->createElement("valeur1", "topic", "50.00","0");
+    //db->createElement("valeur2", "jauj", "30.00", "0");
+    //db->createElement("valeur3", "7blue", "15.00", "0");
+    //db->createElement("valeu4", "CPT", "11.34", "0");
+    //db->createElement("valeur5", "GKC3", "1.00", "0");
+    //db->editElement(1, "jotun", "jotun", "jotun", "jotun");
+    //db->editElement(2, "jotun", "jotun", "jotun", "jotun");
+    //db->editElement(3, "jotun", "jotun", "jotun", "jotun");
+    //db->searchElement("","","","");
+    //db->searchElement("", "", "", "");
+
+    for (int i = 0; i < 10; i++)
+    {
+        Element* elt = new Element(i, to_string(i), to_string(i), to_string(i), to_string(i));
+        elt_list->add(elt);
+    }
+    cout << "Writing finish" << endl;
+    for (int i = 0; i < 10; i++) {
+        Element* temp;
+        temp = elt_list->search(i);
+        if (temp == nullptr) {
+            cout << "- Element NULL" << endl;
+        }
+        else {
+            cout << "+ " << temp->get("name") << " | " << temp->get("topic") << " | " << temp->get("price") << " | " << temp->get("date") << " || id = " << temp->getID() << endl;
+        }
+    }
+    cout << "======================================" << endl;
+    cout << "Modifications :" << endl;
+    elt_list->edit(0);
+    elt_list->edit(9);
+    elt_list->edit(4);
+    for (int i = 0; i < 10; i++) {
+        Element* temp;
+        temp = elt_list->search(i);
+        if (temp == nullptr) {
+            cout << "? Element with id : " << i << " is Deleted or Undefined" << endl;
+        }
+        else {
+            cout << "+ " << temp->get("name") << " | " << temp->get("topic") << "|" << temp->get("price") << " | " << temp->get("date") << " || " << temp->getID() << endl;
+        }
+    }
+    cout << "======================================" << endl;
+    cout << "Deleting :" << endl;
+    elt_list->remove(1);
+    elt_list->remove(8);
+    elt_list->remove(5);
+    for (int i = 0; i < 10; i++) {
+        Element* temp;
+        temp = elt_list->search(i);
+        if (temp == nullptr) {
+            cout << "? Element with id : " << i << " is Deleted or Undefined"<< endl;
+        }
+        else {
+            cout << "+ " << temp->get("name") << " | " << temp->get("topic") << "|" << temp->get("price") << " | " << temp->get("date") << " || " << temp->getID() << endl;
+        }
+    }
+
+    cout << "======================================" << endl;
+    cout << "Clear :" << endl;
+    elt_list->clear();
+    for (int i = 0; i < 10; i++) {
+        Element* temp;
+        temp = elt_list->search(i);
+        if (temp == nullptr) {
+            cout << "? Element with id : " << i << " is Deleted or Undefined" << endl;
+        }
+        else {
+            cout << "+ " << temp->get("name") << " | " << temp->get("topic") << "|" << temp->get("price") << " | " << temp->get("date") << " || " << temp->getID() << endl;
+        }
+    }
+        
+
     /* Variables */
     GtkWidget* MainWindow = NULL;
 

@@ -1,3 +1,10 @@
+//////////////////////////////////////////////////////////////
+// methods of ElementsList.h Class
+// Some methods is based/Copied on Tutorials of SQLite 
+// GaumKap, https://www.sqlite.org
+// 16/08/2020
+//////////////////////////////////////////////////////////////
+
 #include "coyoouDB.h"
 #include <iostream>
 
