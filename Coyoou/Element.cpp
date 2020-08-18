@@ -20,7 +20,7 @@ Element::Element(int id, string name, string topic = "", string price = "", stri
 // Get parameter by sending a string with name of parameter
 string Element::get(string param)
 {
-    string selected = "";
+    string selected = " ";
     if (param == "name") selected = m_name;
     if (param == "topic") selected = m_topic;
     if (param == "price") selected = m_price;

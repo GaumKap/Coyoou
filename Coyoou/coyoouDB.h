@@ -3,6 +3,10 @@
 #include <iostream>
 #include "errors_list.h"
 #include <string>
+#include <vector>
+#include <time.h>
+#include <sstream>
+#include "Element.h"
 
 using namespace std;
 class coyoouDB
@@ -15,8 +19,8 @@ public:
 	int createElement(string name, string topic, string date, string price);
 	int removeElement(int id);
 	int editElement(int id, string name, string topic, string date, string price);
-	void searchElement(string name, string topic, string price, string date = "0");
-
+	void searchElement(vector<Element*>* l_list,string name, string topic, string price, string date);
+	string getTimeNow();
 	char* getError();
 private:
 	int rc;

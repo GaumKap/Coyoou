@@ -78,12 +78,21 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>C:\Program Files\Pack GTK+\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files\Pack GTK+\lib\gtk+\include;C:\Program Files\Pack GTK+\lib\glib\include;C:\Program Files\Pack GTK+\include\tiff\libtiff;C:\Program Files\Pack GTK+\include\tiff;C:\Program Files\Pack GTK+\include\pango\pango;C:\Program Files\Pack GTK+\include\pango\modules;C:\Program Files\Pack GTK+\include\pango;C:\Program Files\Pack GTK+\include\libpng\contrib;C:\Program Files\Pack GTK+\include\libpng;C:\Program Files\Pack GTK+\include\gtk+\modules;C:\Program Files\Pack GTK+\include\gtk+\gdk-pixbuf;C:\Program Files\Pack GTK+\include\gtk+\gdk;C:\Program Files\Pack GTK+\include\gtk+\gtk;C:\Program Files\Pack GTK+\include\gtk+\contrib;C:\Program Files\Pack GTK+\include\gtk+;C:\Program Files\Pack GTK+\include\glib\gthread;C:\Program Files\Pack GTK+\include\glib\gobject;C:\Program Files\Pack GTK+\include\glib\gmodule;C:\Program Files\Pack GTK+\include\glib\glib;C:\Program Files\Pack GTK+\include\glib\build;C:\Program Files\Pack GTK+\include\glib;C:\Program Files\Pack GTK+\include\cairo\src;C:\Program Files\Pack GTK+\include\cairo;C:\Program Files\Pack GTK+\include\atk;C:\Program Files\Pack GTK+\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Pack GTK+\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>C:\Program Files\Pack GTK+\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files\Pack GTK+\lib\gtk+\include;C:\Program Files\Pack GTK+\lib\glib\include;C:\Program Files\Pack GTK+\include\tiff\libtiff;C:\Program Files\Pack GTK+\include\tiff;C:\Program Files\Pack GTK+\include\pango\pango;C:\Program Files\Pack GTK+\include\pango\modules;C:\Program Files\Pack GTK+\include\pango;C:\Program Files\Pack GTK+\include\libpng\contrib;C:\Program Files\Pack GTK+\include\libpng;C:\Program Files\Pack GTK+\include\gtk+\modules;C:\Program Files\Pack GTK+\include\gtk+\gdk-pixbuf;C:\Program Files\Pack GTK+\include\gtk+\gdk;C:\Program Files\Pack GTK+\include\gtk+\gtk;C:\Program Files\Pack GTK+\include\gtk+\contrib;C:\Program Files\Pack GTK+\include\gtk+;C:\Program Files\Pack GTK+\include\glib\gthread;C:\Program Files\Pack GTK+\include\glib\gobject;C:\Program Files\Pack GTK+\include\glib\gmodule;C:\Program Files\Pack GTK+\include\glib\glib;C:\Program Files\Pack GTK+\include\glib\build;C:\Program Files\Pack GTK+\include\glib;C:\Program Files\Pack GTK+\include\cairo\src;C:\Program Files\Pack GTK+\include\cairo;C:\Program Files\Pack GTK+\include\atk;C:\Program Files\Pack GTK+\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Pack GTK+\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>C:\Program Files\Pack GTK+\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files\Pack GTK+\lib\gtk+\include;C:\Program Files\Pack GTK+\lib\glib\include;C:\Program Files\Pack GTK+\include\tiff\libtiff;C:\Program Files\Pack GTK+\include\tiff;C:\Program Files\Pack GTK+\include\pango\pango;C:\Program Files\Pack GTK+\include\pango\modules;C:\Program Files\Pack GTK+\include\pango;C:\Program Files\Pack GTK+\include\libpng\contrib;C:\Program Files\Pack GTK+\include\libpng;C:\Program Files\Pack GTK+\include\gtk+\modules;C:\Program Files\Pack GTK+\include\gtk+\gdk-pixbuf;C:\Program Files\Pack GTK+\include\gtk+\gdk;C:\Program Files\Pack GTK+\include\gtk+\gtk;C:\Program Files\Pack GTK+\include\gtk+\contrib;C:\Program Files\Pack GTK+\include\gtk+;C:\Program Files\Pack GTK+\include\glib\gthread;C:\Program Files\Pack GTK+\include\glib\gobject;C:\Program Files\Pack GTK+\include\glib\gmodule;C:\Program Files\Pack GTK+\include\glib\glib;C:\Program Files\Pack GTK+\include\glib\build;C:\Program Files\Pack GTK+\include\glib;C:\Program Files\Pack GTK+\include\cairo\src;C:\Program Files\Pack GTK+\include\cairo;C:\Program Files\Pack GTK+\include\atk;C:\Program Files\Pack GTK+\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Pack GTK+\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,7 +104,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;SQLiteWin32\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,7 +121,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;SQLiteWin32\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,6 +134,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;SQLite64\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -141,6 +151,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glib-2.0.lib;pangocairo-1.0.lib;pangowin32-1.0.lib;atk-1.0.lib;gdk_pixbuf-2.0.lib;gdk-win32-2.0.lib;pango-1.0.lib;gmodule-2.0.lib;gobject-2.0.lib;gthread-2.0.lib;gtk-win32-2.0.lib;cairo.lib;SQLite64\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -155,6 +166,15 @@
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementsList.h" />
     <ClInclude Include="errors_list.h" />
+    <ClInclude Include="logs.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Coyoou.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="favicon.ico" />
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

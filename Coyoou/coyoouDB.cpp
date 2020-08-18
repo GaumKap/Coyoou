@@ -8,6 +8,8 @@
 #include "coyoouDB.h"
 #include <iostream>
 
+
+
 coyoouDB::coyoouDB(string target)
 {
     m_tableTarget = target;
@@ -19,7 +21,7 @@ coyoouDB::coyoouDB(string target)
     }
     else
     {
-        std::cout << "Opened CoyoouDB.db." << std::endl << std::endl;
+        //std::cout << "Opened CoyoouDB.db." << std::endl << std::endl;
     }
 }
 
@@ -33,8 +35,8 @@ int coyoouDB::createTable(string name)
     int e = CYO_DB_SUCCESS;
     char* message;
     // Execute SQL
-    cout << "Creating " + name + " Table ..." << endl;
-    string sqlCreateTable = "CREATE TABLE " + name + " (id INTEGER PRIMARY KEY, name STRING,date STRING,topic STRING,price STRING);";
+    //cout << "Creating " + name + " Table ..." << endl;
+    string sqlCreateTable = "CREATE TABLE if not exists " + name + " (id INTEGER PRIMARY KEY, name STRING,date DATETIME,topic STRING,price STRING);";
     rc = sqlite3_exec(db, sqlCreateTable.c_str(), NULL, NULL, &message);
     if (rc)
     {
@@ -44,7 +46,7 @@ int coyoouDB::createTable(string name)
     }
     else
     {
-        cout << "Created " + name + "." << endl << endl;
+        //cout << "Created " + name + "." << endl << endl;
     }
     return e;
 }
@@ -55,7 +57,7 @@ int coyoouDB::removeTable(string name)
     int e = CYO_DB_SUCCESS;
 
     cout << "Remove Table ..." << endl;
-    string sqlQuery2 = "DELETE TABLE " + name + ";";
+    string sqlQuery2 = "DELETE TABLE if exists " + name + ";";
     rc = sqlite3_exec(db, sqlQuery2.c_str(), NULL, NULL, &error);
 #ifdef DEBUG
     cout << ">-SQL-< : " + rc << endl; // DEBUG INFO
@@ -63,7 +65,8 @@ int coyoouDB::removeTable(string name)
     return e;
 }
 
-// Création d'une ligne dans la Table de la BDD
+// Create Date in Database
+// If sucess function send 100
 int coyoouDB::createElement(string name, string topic, string price, string date)
 {
     int e = CYO_DB_SUCCESS;
@@ -146,11 +149,10 @@ int coyoouDB::editElement(int id, string name, string topic, string date, string
 
 // Recherche d'un ou plusieurs élements dans la BDD
 // Note : Definir le retour de la fonction pour l'affichage en graphique
-void coyoouDB::searchElement(string name, string topic, string date, string price)
+void coyoouDB::searchElement(vector<Element*>* l_list, string name, string topic,string price, string date = "0")
 {
-
     // Display MyTable
-    cout << "Retrieving values in MyTable ..." << endl;
+    //cout << "Retrieving values in MyTable ..." << endl;
     string sqlSelect = "SELECT * FROM " + m_tableTarget + ";";
     char** results = NULL;
     int rows, columns;
@@ -162,38 +164,86 @@ void coyoouDB::searchElement(string name, string topic, string date, string pric
     }
     else
     {
+        // Position 0 : id ;
+        // 1 : name;
+        // 2 : date;
+        // 3 : topic;
+        // 4 : prix
+        int position = 0;
+
+        
         // Display Table
         for (int rowCtr = 0; rowCtr <= rows; ++rowCtr)
         {
+            string values[5];
+            position = 0;
             for (int colCtr = 0; colCtr < columns; ++colCtr)
             {
                 // Determine Cell Position
                 int cellPosition = (rowCtr * columns) + colCtr;
 
                 // Display Cell Value
-                cout.width(12);
-                cout.setf(ios::left);
-                cout << results[cellPosition] << " ";
+                //cout.width(12);
+                //cout.setf(ios::left);
+                //cout << results[cellPosition] << " ";
+                if (position == 0) {
+                    
+                    values[0] = results[cellPosition];
+                }
+                else if (position == 1) {
+                    values[1] = results[cellPosition];
+                }
+                else if (position == 2) {
+                    values[2] = results[cellPosition];
+                }
+                else if (position == 3) {
+                    values[3] = results[cellPosition];
+                }
+                else if (position == 4) {
+                    values[4] = results[cellPosition];
+                }
+                position++;
             }
 
             // End Line
-            cout << endl;
-
+            //cout << endl;
+            if (rowCtr != 0)l_list->push_back(new Element(stoi(values[0]), values[1], values[3], values[2], values[4]));
             // Display Separator For Header
             if (0 == rowCtr)
             {
                 for (int colCtr = 0; colCtr < columns; ++colCtr)
                 {
-                    cout.width(12);
-                    cout.setf(ios::left);
-                    cout << "~~~~~~~~~~~~ ";
+                    //cout.width(12);
+                    //cout.setf(ios::left);
+                    //cout << "~~~~~~~~~~~~ ";
                 }
-                cout << endl;
+                //cout << endl;
             }
         }
     }
     sqlite3_free_table(results);
 
+}
+
+// -- Get current time -- 
+//  tm.tm_year : years
+//  tm.tm_mon + 1 : month +1 to (january = 0)
+//  tm.tm_mday : day
+//  tm.tm_hour : hours
+//  tm.tm_min : minutes
+//  tm.tm_sec : seconds
+string coyoouDB::getTimeNow()
+{
+    string date;
+    time_t t = time(NULL);
+    struct tm tm;
+    localtime_s(&tm, &t);
+    // Exemple 2012-04-23T18:25:43.511Z
+    stringstream cc;
+    cc << (1900 + tm.tm_year) << "-" << (tm.tm_mon + 1) << "-" << tm.tm_mday << "T" << tm.tm_hour << ":" << tm.tm_min << ":" << tm.tm_sec << ".000Z";
+    date = cc.str();
+    //cout << date << endl;
+    return date;
 }
 
 char* coyoouDB::getError()
