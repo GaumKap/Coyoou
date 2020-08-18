@@ -1,4 +1,3 @@
- 
 # Coyoou
 
 ### Description
@@ -23,13 +22,6 @@ I propose a Alpha version of this app in Command Line (a0.0.1)
 This Command Line will be removed when GUI development starting.
 
 ### Bug Report
-
----
-name: Bug report
-about: Create a report to help me improve
-title: ''
-labels: bug
-assignees: ''
 
 ---
 
