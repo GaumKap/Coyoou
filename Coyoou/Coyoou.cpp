@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include <gtk/gtk.h>
 #include "sqlite3.h"
 #include "coyoouDB.h"
 #include "ElementsList.h"
@@ -205,22 +204,7 @@ int main(int argc, char** argv)
     application_statu.str("");
     application_statu << "[" << db->getTimeNow() << "]" << "Application Closed by User;\n";
     CYO_logging(application_statu.str());
-    /* GTK SECTION FOR FUTURES UPDATES */
-    /* Variables */
-    //GtkWidget* MainWindow = NULL;
 
-    /* Initialisation de GTK+ */
-    //gtk_init(&argc, &argv);
-
-    /* Création de la fenêtre */
-    //MainWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    //g_signal_connect(G_OBJECT(MainWindow), "delete-event", G_CALLBACK(gtk_main_quit), NULL);
-
-    /* Affichage et boucle évènementielle */
-    //gtk_widget_show(MainWindow);
-    //gtk_main();
-
-    /* On quitte.. */
     return EXIT_SUCCESS;
 }
 
