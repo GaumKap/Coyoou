@@ -149,11 +149,43 @@ int coyoouDB::editElement(int id, string name, string topic, string date, string
 
 // Recherche d'un ou plusieurs élements dans la BDD
 // Note : Definir le retour de la fonction pour l'affichage en graphique
-void coyoouDB::searchElement(vector<Element*>* l_list, string name, string topic,string price, string date = "0")
+void coyoouDB::searchElement(vector<Element*>* l_list, string selector)
 {
     // Display MyTable
     //cout << "Retrieving values in MyTable ..." << endl;
-    string sqlSelect = "SELECT * FROM " + m_tableTarget + ";";
+    string sqlSelect;
+
+    std::string s = selector;
+    std::string delimiter = ";";
+    // Parse string to get "token"
+    size_t pos = 0;
+    string token = s.substr(0, s.find(delimiter));
+    s.erase(0, s.find(delimiter) + delimiter.length());
+
+    //Condtition WHERE ...
+    if (token == "date") {
+        sqlSelect = "SELECT * FROM " + m_tableTarget + " WHERE date=\""+s+"\";";
+    }
+    else if (token == "name") {
+        sqlSelect = "SELECT * FROM " + m_tableTarget + " WHERE name=\"" + s + "\";";
+    }
+    else if (token == "tag") {
+        sqlSelect = "SELECT * FROM " + m_tableTarget + " WHERE topic=\"" + s + "\";";
+    }
+    else if (token == "price") {
+        sqlSelect = "SELECT * FROM " + m_tableTarget + " WHERE price=" + s + ";";
+    }
+    else if (token == "dateperiod"){
+        string begin = s.substr(0, s.find(delimiter));
+        s.erase(0, s.find(delimiter) + delimiter.length());
+        // sql: SELECT * FROM Table WHERE date<="2012-04-23T18:25:43.511Z" AND date>="2010-04-23T18:25:43.511Z"
+        sqlSelect = "SELECT * FROM " + m_tableTarget + " WHERE date<=\"" + s + "\" AND date>=\""+ begin +"\";";
+    }
+    else
+    {
+        sqlSelect = "SELECT * FROM " + m_tableTarget + ";";
+    }
+    
     char** results = NULL;
     int rows, columns;
     sqlite3_get_table(db, sqlSelect.c_str(), &results, &rows, &columns, &error);

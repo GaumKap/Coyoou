@@ -1,3 +1,4 @@
+
 //////////////////////////////////////////////////////////////
 // methods of ElementsList.h Class
 //
@@ -142,9 +143,10 @@ void ElementsList::search(vector<Element*> *targ_tab, string method, string req)
 // req[1] : end Period
 //
 // Also this Function execute an update on list 
-void ElementsList::search(vector<Element*> *targ_tab,string req[2])
+void ElementsList::search(vector<Element*> *targ_tab,string selector)
 {
-    //SOON
+    this->clear();
+    asso_db->searchElement(&m_list, selector);
 }
 
 void ElementsList::getAll(vector<Element*>* targ_tab, int limit)
@@ -173,7 +175,7 @@ void ElementsList::getAll(vector<Element*>* targ_tab, int limit)
 void ElementsList::updateList()
 {
     this->clear();
-    asso_db->searchElement(&m_list,"","","","");
+    asso_db->searchElement(&m_list);
 }
 
 // Get position of Element in vector List [usable by methods of this class only]

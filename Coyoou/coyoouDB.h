@@ -19,7 +19,7 @@ public:
 	int createElement(string name, string topic, string date, string price);
 	int removeElement(int id);
 	int editElement(int id, string name, string topic, string date, string price);
-	void searchElement(vector<Element*>* l_list,string name, string topic, string price, string date);
+	void searchElement(vector<Element*>* l_list, string selector="none;none");
 	string getTimeNow();
 	char* getError();
 private:
