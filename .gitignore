@@ -364,5 +364,11 @@ FodyWeavers.xsd
 
 # CoyoouDB
 *.db
-#./Coyoou/SQLite64
-#./Coyoou/SQLiteWin32
+*.log
+Coyoou/SQLite64/
+Coyoou/SQLiteWin32/
+Coyoou/shell.c
+Coyoou/sqlite3.c
+Coyoou/sqlite3.h
+Coyoou/sqlite3ext.h
+
