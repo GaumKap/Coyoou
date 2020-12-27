@@ -16,7 +16,7 @@ public:
 	int clear(); // Clear all list (long process)
 	Element* search(int id); // Search by ID
 	void search(vector<Element*> *targ_tab, string method, string req); //search by something else
-	void search(vector<Element*>* targ_tab,string req[2]); // Search by date
+	void search(vector<Element*>* targ_tab,string selector); // Search by date
 	void getAll(vector<Element*>* targ_tab, int limit); // Get All table or set a limit
 	/* Soon Set start position on getAll or others search function for GUI*/
 	void updateList();

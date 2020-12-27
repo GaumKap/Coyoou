@@ -4,22 +4,14 @@
 Coyoou Project is an Graphic App, this will be an app for put and control/convert to print some information about your outgoings (and make something in C++ for my pleasure)
 
 ### Environment configuration
-Environment configuration is based on Openclassroom tutorial and official SQLite website
-available on my blog [HERE](https://gaumkap.blogspot.com/2020/07/gtk-sqlite-on-visual-studio-2019.html).
-Note : If you have already installed GTK with another method verify in VS2019 project settings if you have the same directories for GTK+
+This is C/C++ code to make your own build you need to download wxWidjet sources from : https://www.wxwidgets.org/ And follow this tutorial : https://www.youtube.com/watch?v=sRhoZcNpMb4
+
+And you need to add SQLite3 sources and library in Coyoou sources by following this tutorial : [Documentation/Add_SQLite](Documentation/Add_SQLite)
 
 ** Recommended Configuration **
 - Windows 10 2004
 - Visual Studio 2019 (last releases)
 - Desktop C++ module Installed (VS Installer)
-
-### About Code
-
-This is a C++ code with GTK+ and SQLite libraries/frameworks
-This code is uncomplete and can't be used for production,
-
-I propose a Alpha version of this app in Command Line (a0.0.1)
-This Command Line will be removed when GUI development starting.
 
 ### Bug Report
 
